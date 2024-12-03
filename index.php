@@ -16,9 +16,10 @@ $id_connect = mysqli_connect('localhost', 'root', null, 'portfolio');
         <h1>Portfolio zespołu</h1>
         <div id="navbar">
             <ul>
-                <li><a onclick="todo();" href="#">Strona główna</a></li>
-                <li><a onclick="todo();" href="#">O firmie</a></li>
-                <li><a onclick="todo();" href="#">Kontakt</a></li>
+                <li><a href="#">Strona główna</a></li>
+                <li><a onclick="todo();">O firmie</a></li>
+                <li><a href="./contact.html">Kontakt</a></li>
+                <li><a id="admin" href="./admin.php">Panel administratora</a></li>
             </ul>
         </div>
         <!-- navbar -->
@@ -28,7 +29,7 @@ $id_connect = mysqli_connect('localhost', 'root', null, 'portfolio');
         </div>
         <div id="particles"></div>
         <!-- php script -->
-        <?php
+        <?php 
         $q = "SELECT name, title, email, pic FROM team;";
         $query = mysqli_query($id_connect, $q);
         while($row = mysqli_fetch_array($query)) {
@@ -40,7 +41,7 @@ $id_connect = mysqli_connect('localhost', 'root', null, 'portfolio');
                 <button onclick=\"contact('{$row['email']}');\" id='contact'>Skontaktuj się</button>
             </section>
             ";
-        }
+        } 
         ?>
     </section>
     <section class="footer">

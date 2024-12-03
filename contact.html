@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="./particles/particles.min.js"></script>
+    <script src="./particles/particlesload.js"></script>
+    <title>Portfolio</title>
+</head>
+<body>
+    <section class="banner">
+        <h1>Portfolio zespołu</h1>
+        <div id="navbar">
+            <ul>
+                <li><a href="./index.php">Strona główna</a></li>
+                <li><a onclick="todo();">O firmie</a></li>
+                <li><a href="#">Kontakt</a></li>
+                <li><a id="admin" href="./admin.php">Panel administratora</a></li>
+            </ul>
+        </div>
+        <!-- navbar -->
+    </section>
+    <section class="block-main">
+        <div class="block-img">
+        </div>
+        <div id="particles"></div>
+            <section id="contact_form">
+                <h1>Formularz Kontaktowy</h1>
+
+                <label for="name">Imię i nazwisko:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">Adres e-mail:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="subject">Temat wiadomości:</label><br>
+                <input type="text" id="subject" name="subject" required><br><br>
+
+                <label for="message">Treść wiadomości:</label><br>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+                <button onclick="submit();">Wyślij</button>
+            </section>
+            <section id="alert_form" hidden></section>
+    </section>
+    <section class="footer">
+        <p>Witrynę wykonał: 12328319239</p>
+    </section>
+</body>
+<script>
+    function todo() {
+        alert('Strona w budowie!');
+    }
+    function submit() {
+        // data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        // sections
+        let alert_form = document.getElementById('alert_form');
+        let contact_form = document.getElementById('contact_form');
+
+        contact_form.style.display = "none";
+        alert_form.style.display = "block";
+        alert_form.innerHTML = `<h1>Pomyślnie wysłano wiadomość!</h1> <p>Imię i nazwisko:</p> ${name}\n <p>Adres e-mail:</p> ${email}\n <p>Temat wiadomości:</p> ${subject}\n<p>Treść wiadomości:</p> ${message} `;
+    }
+</script>
+</html>
